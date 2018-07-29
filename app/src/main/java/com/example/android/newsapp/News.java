@@ -1,6 +1,7 @@
 package com.example.android.newsapp;
 
-/**News
+/**
+ * News
  * An {@link News} object contains information related to a single earthquake.
  */
 public class News {
@@ -29,35 +30,21 @@ public class News {
 
     /**
      * Constructs a new {@link News} object.
-     *
-//     * @param newsDate          is the date of news
-//     * @param section           is the location where the earthquake happened
-//     * @param title             is the title of news item
-//     * @param imageUrl          is the website URL to the new thumbnail
-//     * @param contributor
+     * <p>
+     * //     * @param newsDate          is the date of news
+     * //     * @param section           is the location where the earthquake happened
+     * //     * @param title             is the title of news item
+     * //     * @param imageUrl          is the website URL to the new thumbnail
+     * //     * @param contributor
      */
-//    public News(String newsDate, String section, String title, String imageUrl, String contributor) {
-//        mNewsDate = newsDate;
-//        mSection = section;
-//        mTitle = title;
-//        mImageUrl = imageUrl;
-//        mContributor = contributor;
-//    }
-
-//    public News(String title, String section, String date, String contributor, String imageUrl) {
-//        mTitle = title;
-//        mSection = section;
-//        mNewsDate = date;
-//        mContributor = contributor;
-//        mImageUrl = imageUrl;
-//    }
-
-    public News(String title, String section, String date, String contributor) {
+    public News(String title, String section, String date, String contributor, String imageUrl) {
         mTitle = title;
         mSection = section;
         mNewsDate = date;
         mContributor = contributor;
+        mImageUrl = imageUrl;
     }
+
 
     /**
      * Returns the date of news.
@@ -87,5 +74,8 @@ public class News {
         return mImageUrl;
     }
 
-    public String getContributor(){ return mContributor;}
+
+    public String getContributor() {
+        return mContributor;
+    }
 }

@@ -2,7 +2,10 @@ package com.example.android.newsapp;
 
 
 import android.content.Context;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
 import android.graphics.drawable.GradientDrawable;
+import android.net.Uri;
 import android.support.v4.content.ContextCompat;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -11,6 +14,10 @@ import android.widget.ArrayAdapter;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import java.io.IOException;
+import java.net.MalformedURLException;
+import java.net.URI;
+import java.net.URL;
 import java.text.DecimalFormat;
 import java.text.SimpleDateFormat;
 import java.util.Date;
@@ -58,11 +65,27 @@ public class NewsAdapter extends ArrayAdapter<News> {
         // Find the earthquake at the given position in the list of earthquakes
         News currentNews = getItem(position);
 
-//        // Find the TextView with view ID magnitude
-//        TextView textView = (TextView) listItemView.findViewById(R.id.thumbnail);
-//        String formattedImage = currentNews.getImageUrl();
-//        // Display the magnitude of the current earthquake in that TextView
-//        textView.setText(formattedImage);
+        // Find the TextView with view ID magnitude
+        ImageView imageView = (ImageView) listItemView.findViewById(R.id.thumbnail);
+        String formattedImage = currentNews.getImageUrl();
+       // URL url = new URL(formattedImage);
+        URL url = null;
+        try {
+            url = new URL(formattedImage);
+        } catch (MalformedURLException e) {
+            e.printStackTrace();
+        }
+        Bitmap bmp;
+        if (url != null) {
+            try {
+                bmp = BitmapFactory.decodeStream(url.openConnection().getInputStream());
+                imageView.setImageBitmap(bmp);
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+        }
+
+
 
 
         TextView sectionView = (TextView) listItemView.findViewById(R.id.section);

@@ -198,15 +198,6 @@ public final class QueryUtils {
             // which represents a list of news stories.
             JSONArray newsArray = responseJSONObject.getJSONArray("results");
 
-            // Extract the JSONArray associated with the key called "features",
-            // which represents a list of features (or earthquakes).
-       //  JSONArray newsArray = baseJsonResponse.getJSONArray("results");
-
-         //   JSONArray newsArray = baseJsonResponse.getJSONArray("");
-
-       //     JSONArray newsArray = new JSONArray();
-
-
             Log.i(LOG_TAG,"TEST: created JSONArray()..");
 
             // For each earthquake in the earthquakeArray, create an {@link News} object
@@ -217,24 +208,8 @@ public final class QueryUtils {
                 // Get a single newsStory at position i within the list of news stories
                 JSONObject currentNews = newsArray.getJSONObject(i);
 
-                // Get a single earthquake at position i within the list of earthquakes
-             //   JSONObject currentNews = newsArray.getJSONObject(i);
-
                 Log.i(LOG_TAG,"TEST: get a single story ");
 
-
-                // For a given earthquake, extract the JSONObject associated with the
-                // key called "properties", which represents a list of all properties
-                // for that earthquake.
-//                JSONObject fields = currentNews.getJSONObject("fields");
-//
-//                String imageUrl = fields.getString("thumbnail");
-//
-//                // *******Extract the value for the key called "place"
-//                String section = currentNews.getString("sectionName");
-
-                // ************Extract the value for the key called "time"
-                // long time = properties.getLong("time");
                 String title = currentNews.getString("webTitle");
 
                 // Extract the value for the key called "sectionName"
@@ -252,42 +227,17 @@ public final class QueryUtils {
                     contributor = contributorTag.getString("webTitle");
                 }
 
-//                // Extract the value for the key called "thumbnail"
-//                String imageUrl = currentNews.getString("thumbnail");
-
                 //********************************************************************
 
-//                //For imageUrl Extract the JSONArray with the key "fields"
-//                JSONArray fieldsArray = currentNews.getJSONArray("fields");
-//                String imageUrl = null;
-//                JSONArray imageUrlFields = (JSONArray) fieldsArray.get(0);
-//                imageUrl = imageUrlFields.getString("thumbnail");
+               String imageUrl = null;
+                JSONObject imageUrlObject = currentNews.getJSONObject("fields");
+                imageUrl = imageUrlObject.getString("thumbnail");
+           //     String imageUrl = currentNews.getString("thumbnail");
 
-              //  String imageUrl = null;
+        //        String url = currentNews.getString("url");
 
-//              //  if (fieldsArray.length() == 1) {
-//                  JSONObject imageUrlFields = (JSONObject) fieldsArray.get(0);
-//                   // JSONArray imageUrlFields = (JSONArray) fieldsArray.get(0);
-//                    imageUrl = imageUrlFields.getString("thumbnail");
-//                }
-
-                // *******Extract the value for the key called "url"
-                // String url = properties.getString("url");
-
-
-//                String contributor = fields.getString("contributor");
-//
-//                // ******Extract the value for the key called "mag"
-//               // double magnitude = properties.getDouble("mag");
-//                String newsDate = currentNews.getString("webPublicationDate");
-
-
-//                // Create a new {@link Earthquake} object with the magnitude, location, time,
-//                //******** and url from the JSON response.
-//               // News news = new News(magnitude, location, time, url);
-//                News news = new News(imageUrl, section, title, contributor, newsDate);
-               // News news = new News(title, section, date, contributor, imageUrl);
-                News news = new News(title, section, date, contributor);
+              News news = new News(title, section, date, contributor, imageUrl);
+              //  News news = new News(title, section, date, contributor);
 
                 // Add the new {@link Earthquake} to the list of earthquakes.
                 newsList.add(news);
