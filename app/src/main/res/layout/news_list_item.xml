@@ -1,0 +1,65 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="?android:attr/listPreferredItemHeight"
+    android:orientation="horizontal"
+    android:paddingEnd="16dp"
+    android:paddingLeft="16dp"
+    android:paddingRight="16dp"
+    android:paddingStart="16dp">
+
+    <!-- thumbnail -->
+    <ImageView
+        android:id="@+id/thumbnail"
+        android:layout_width="80dp"
+        android:layout_height="100dp"
+        android:layout_gravity="center_vertical"
+        android:gravity="center"
+        android:src="@drawable/sample" />
+
+    <LinearLayout
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_vertical"
+        android:layout_marginLeft="16dp"
+        android:layout_marginStart="16dp"
+        android:layout_weight="1"
+        android:orientation="vertical">
+
+        <!-- section heading small /formerly location_offset-->
+        <!-- android:textColor="@color/textColorEarthquakeDetails" -->
+        <TextView
+            android:id="@+id/section"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:ellipsize="end"
+            android:fontFamily="sans-serif-medium"
+            android:maxLines="1"
+            android:textAllCaps="false"
+            android:textSize="10sp"
+            tools:text="Section small" />
+
+        <!-- title large formerly primary_location-->
+        <!-- android:textColor="@color/textColorEarthquakeLocation" -->
+        <TextView
+            android:id="@+id/title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:ellipsize="end"
+            android:maxLines="2"
+            android:textSize="14sp"
+            android:textColor="@color/black"
+        tools:text="Title of News large font" />
+
+    <!-- contributor name if known formerly date-->
+        <!-- android:textColor="@color/black" -->
+        <TextView
+            android:id="@+id/contributordate"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:ellipsize="end"
+            android:textSize="10sp"
+            tools:text="Contributor name" />
+
+    </LinearLayout>
+</LinearLayout>
