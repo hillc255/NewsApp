@@ -18,6 +18,7 @@ import java.nio.charset.Charset;
 import java.util.ArrayList;
 import java.util.List;
 
+// Based on ud843-Quake Report - Udemy Android Basics Application
 
 /**
  * Helper methods related to requesting and receiving news data from The Guardian

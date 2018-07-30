@@ -3,17 +3,18 @@
     android:layout_width="match_parent"
     android:layout_height="?android:attr/listPreferredItemHeight"
     android:orientation="horizontal"
-    android:paddingEnd="16dp"
-    android:paddingLeft="16dp"
-    android:paddingRight="16dp"
-    android:paddingStart="16dp">
+    android:paddingEnd="@dimen/list_item_padding"
+    android:paddingLeft="@dimen/list_item_padding"
+    android:paddingRight="@dimen/list_item_padding"
+    android:paddingStart="@dimen/list_item_padding">
 
-    <!-- thumbnail -->
+    <!-- Image of news thumbnail -->
     <ImageView
         android:id="@+id/thumbnail"
-        android:layout_width="90dp"
-        android:layout_height="100dp"
+        android:layout_width="@dimen/thumbnail_width"
+        android:layout_height="@dimen/thumbnail_height"
         android:layout_gravity="center_vertical"
+        android:contentDescription="@string/image_description"
         android:gravity="center"
         android:src="@drawable/noimage" />
 
@@ -21,13 +22,12 @@
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_gravity="center_vertical"
-        android:layout_marginLeft="16dp"
-        android:layout_marginStart="16dp"
+        android:layout_marginLeft="@dimen/linear_layout_left"
+        android:layout_marginStart="@dimen/linear_layout_start"
         android:layout_weight="1"
         android:orientation="vertical">
 
-        <!-- section heading small /formerly location_offset-->
-        <!-- android:textColor="@color/textColorEarthquakeDetails" -->
+        <!-- Text with section name -->
         <TextView
             android:id="@+id/section"
             android:layout_width="wrap_content"
@@ -36,30 +36,28 @@
             android:fontFamily="sans-serif-medium"
             android:maxLines="1"
             android:textAllCaps="false"
-            android:textSize="10sp"
-            tools:text="Section small" />
+            android:textSize="@dimen/large_textsize"
+            tools:text="@string/section_placeholder" />
 
-        <!-- title large formerly primary_location-->
-        <!-- android:textColor="@color/textColorEarthquakeLocation" -->
+        <!-- Text with title -->
         <TextView
             android:id="@+id/title"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:ellipsize="end"
             android:maxLines="2"
-            android:textSize="12sp"
             android:textColor="@color/black"
-        tools:text="Title of News large font" />
+            android:textSize="@dimen/large_textsize"
+            tools:text="@string/title_placeholder" />
 
-    <!-- contributor name if known formerly date-->
-        <!-- android:textColor="@color/black" -->
+        <!-- Text with contributor name and date  -->
         <TextView
             android:id="@+id/contributordate"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:ellipsize="end"
-            android:textSize="10sp"
-            tools:text="Contributor name" />
+            android:textSize="@dimen/small_textsize"
+            tools:text="@string/contributor_date" />
 
     </LinearLayout>
 </LinearLayout>

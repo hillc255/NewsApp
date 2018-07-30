@@ -1,13 +1,25 @@
 <resources>
     <string name="app_name">NewsApp</string>
-    <!-- Default text to show with the earthquake location ("Near the Pacific-Antarctic Ridge")
-if no specific kilometer distance from the primary location is given [CHAR LIMIT=30] -->
-    <string name="near_the">Near the</string>
 
-    <!-- Text to display in the list when there are no earthquakes [CHAR LIMIT=NONE] -->
+    <!-- Text to display in the list when there are no news items [CHAR LIMIT=NONE] -->
     <string name="no_news">No news found.</string>
 
     <!-- Error message when there is no internet connectivity [CHAR LIMIT=NONE] -->
     <string name="no_internet_connection">No internet connection.</string>
+
+    <!-- Image description for news item photo -->
+    <string name="image_content">Image for news item</string>
+
+    <!-- Placeholder for title -->
+    <string name="title_placeholder">Place holder for title</string>
+
+    <!-- Section for news item -->
+    <string name="section_placeholder">Placeholder for section</string>
+
+    <!-- Placeholder for image -->
+    <string name="image_description">Placeholder for image</string>
+
+    <!-- Placeholder for contributor and date -->
+    <string name="contributor_date">Placeholder for contributor and date</string>
 
 </resources>

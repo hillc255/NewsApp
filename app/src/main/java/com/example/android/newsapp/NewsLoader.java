@@ -5,6 +5,8 @@ import android.content.Context;
 
 import java.util.List;
 
+// Based on ud843-Quake Report - Udemy Android Basics Application
+
 /**
  * Loads a list of news items by using an AsyncTask to perform the
  * network request to the given URL.

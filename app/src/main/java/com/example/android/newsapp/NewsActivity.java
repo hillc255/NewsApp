@@ -16,6 +16,8 @@ import android.widget.TextView;
 import java.util.ArrayList;
 import java.util.List;
 
+// Based on ud843-Quake Report - Udemy Android Basics Application
+
 public class NewsActivity extends AppCompatActivity
         implements LoaderCallbacks<List<News>> {
 

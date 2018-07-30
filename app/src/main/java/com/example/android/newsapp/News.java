@@ -1,5 +1,7 @@
 package com.example.android.newsapp;
 
+// Based on ud843-Quake Report - Udemy Android Basics Application
+
 /**
  * News
  * An {@link News} object contains information related to a single news item.

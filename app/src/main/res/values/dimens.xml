@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <!-- News activity dimens -->
+    <dimen name="news_activity_divider">0dp</dimen>
+
+    <!-- List item dimens -->
+    <dimen name="list_item_padding">16dp</dimen>
+    <dimen name="thumbnail_width">90dp</dimen>
+    <dimen name="thumbnail_height">100dp</dimen>
+    <dimen name="linear_layout_width">0dp</dimen>
+    <dimen name="linear_layout_left">16dp</dimen>
+    <dimen name="linear_layout_start">16dp</dimen>
+    <dimen name="small_textsize">10sp</dimen>
+    <dimen name="large_textsize">12sp</dimen>
+
+</resources>

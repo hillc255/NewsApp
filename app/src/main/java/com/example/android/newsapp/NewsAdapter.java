@@ -1,6 +1,5 @@
 package com.example.android.newsapp;
 
-
 import android.content.Context;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
@@ -18,6 +17,8 @@ import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.List;
+
+// Based on ud843-Quake Report - Udemy Android Basics Application
 
 /**
  * An {@link NewsAdapter} knows how to create a list item layout for each news item
