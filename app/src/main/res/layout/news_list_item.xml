@@ -1,7 +1,7 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="?android:attr/listPreferredItemHeight"
+    android:layout_height="match_parent"
     android:orientation="horizontal"
     android:paddingEnd="@dimen/list_item_padding"
     android:paddingLeft="@dimen/list_item_padding"
@@ -36,7 +36,7 @@
             android:fontFamily="sans-serif-medium"
             android:maxLines="1"
             android:textAllCaps="false"
-            android:textSize="@dimen/large_textsize"
+            android:textSize="@dimen/small_textsize"
             tools:text="@string/section_placeholder" />
 
         <!-- Text with title -->
