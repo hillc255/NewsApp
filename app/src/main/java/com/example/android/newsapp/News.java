@@ -6,40 +6,32 @@ package com.example.android.newsapp;
  */
 public class News {
 
-    /**
-     * Time of the news
-     */
+    // Time of the news
     private String mTitle;
 
-    /**
-     * Section of news
-     */
+    // Section of news
     private String mSection;
 
 
-    /**
-     * Date of news
-     */
+    // Date of news
     private String mNewsDate;
 
-    /**
-     * Contributor for news
-     */
+
+    // Contributor for news
     private String mContributor;
 
-    /**
-     * Image for news
-     */
+    // Image for news
     private String mImageUrl;
 
 
     /**
      * Constructs a new {@link News} object.
-     *  @param title          is the title of news itemi
-     *  @param section        is the location where the earthquake happened
-     *  @param date           is the date of news
-     *  @param contributor    is the contributor of the news
-     *  @param imageUrl       is the website URL to the news thumbnail
+     *
+     * @param title       is the title of news itemi
+     * @param section     is the location where the earthquake happened
+     * @param date        is the date of news
+     * @param contributor is the contributor of the news
+     * @param imageUrl    is the website URL to the news thumbnail
      */
     public News(String title, String section, String date, String contributor, String imageUrl) {
         mTitle = title;
@@ -49,41 +41,31 @@ public class News {
         mImageUrl = imageUrl;
     }
 
-    /**
-     * Returns the time of the earthquake.
-     */
+    // Returns the time of the earthquake.
     public String getTitle() {
         return mTitle;
     }
 
 
-    /**
-     * Returns the news section.
-     */
+    // Returns the news section.
     public String getSection() {
         return mSection;
     }
 
 
-    /**
-     * Returns the date of news.
-     */
+    // Returns the date of news.
     public String getNewsDate() {
         return mNewsDate;
     }
 
 
-    /**
-     * Returns the contributor of the news item
-     */
+    // Returns the contributor of the news item
     public String getContributor() {
         return mContributor;
     }
 
 
-    /**
-     * Returns the website URL to find more information about image.
-     */
+    // Returns the website URL to find more information about image.
     public String getImageUrl() {
         return mImageUrl;
     }
