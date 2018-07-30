@@ -20,37 +20,30 @@ import java.util.Date;
 import java.util.List;
 
 /**
- * An {@link NewsAdapter} knows how to create a list item layout for each earthquake
+ * An {@link NewsAdapter} knows how to create a list item layout for each news item
  * in the data source (a list of {@link News} objects).
- * <p>
  * These list item layouts will be provided to an adapter view like ListView
  * to be displayed to the user.
  */
 public class NewsAdapter extends ArrayAdapter<News> {
 
-    /**
-     * The part of the location string from the USGS service that we use to determine
-     * whether or not there is a location offset present ("5km N of Cairo, Egypt").
-     */
-    //  private static final String LOCATION_SEPARATOR = " of ";
 
     //create new java.util.Date object
     Date date = new Date();
-    Date date1;
 
     /**
      * Constructs a new {@link NewsAdapter}.
      *
      * @param context  of the app
-     * @param newsList is the list of earthquakes, which is the data source of the adapter
+     * @param newsList is the list of news items, which is the data source of the adapter
      */
     public NewsAdapter(Context context, List<News> newsList) {
         super(context, 0, newsList);
     }
 
     /**
-     * Returns a list item view that displays information about the earthquake at the given position
-     * in the list of earthquakes.
+     * Returns a list item view that displays information about the news items  at the given position
+     * in the list of news items.
      */
     @Override
     public View getView(int position, View convertView, ViewGroup parent) {
@@ -65,10 +58,9 @@ public class NewsAdapter extends ArrayAdapter<News> {
         // Find the earthquake at the given position in the list of earthquakes
         News currentNews = getItem(position);
 
-        // Find the ImageView with view
-        ImageView imageView = (ImageView) listItemView.findViewById(R.id.thumbnail);
+        // Display the image of the current news item in the ImageView
+        ImageView imageView = listItemView.findViewById(R.id.thumbnail);
         String formattedImage = currentNews.getImageUrl();
-        // URL url = new URL(formattedImage);
         URL url = null;
         try {
             url = new URL(formattedImage);
@@ -86,21 +78,22 @@ public class NewsAdapter extends ArrayAdapter<News> {
         }
 
 
-        TextView sectionView = (TextView) listItemView.findViewById(R.id.section);
+        TextView sectionView = listItemView.findViewById(R.id.section);
         String formattedSection = currentNews.getSection();
-        // Display the magnitude of the current earthquake in that TextView
+        // Display the section of the current news item in that TextView
         sectionView.setText(formattedSection);
 
-        TextView titleView = (TextView) listItemView.findViewById(R.id.title);
+        TextView titleView = listItemView.findViewById(R.id.title);
         String formattedTitle = currentNews.getTitle();
-        // Display the magnitude of the current earthquake in that TextView
+        // Display the title of the current news item in that TextView
         titleView.setText(formattedTitle);
 
-        TextView contributorView = (TextView) listItemView.findViewById(R.id.contributordate);
+        TextView contributorView = listItemView.findViewById(R.id.contributordate);
         String formattedContributor = currentNews.getContributor();
+        // Display the contributor and date of the current news item in that TextView
         String date = currentNews.getNewsDate();
 
-        //Format string input
+        // Format date string
         String input = date.substring(0, 10);
         SimpleDateFormat sdfIn = new SimpleDateFormat("yyyy-mm-dd");
         SimpleDateFormat sdfOut = new SimpleDateFormat("mm-dd-yyyy");
@@ -112,18 +105,15 @@ public class NewsAdapter extends ArrayAdapter<News> {
         }
         String formattedNewsdate = sdfOut.format(date1);
 
+        //Concatenate contributor and date if contributor exists
         if (formattedContributor != null && !formattedContributor.isEmpty()) {
             String authordate = ("by " + formattedContributor + "  /  " + formattedNewsdate);
             contributorView.setText(authordate);
         } else {
-            String authordate = (formattedNewsdate);
-            contributorView.setText(authordate);
+            contributorView.setText(formattedNewsdate);
         }
-
 
         // Return the list item view that is now showing the appropriate data
         return listItemView;
     }
-
-
 }
