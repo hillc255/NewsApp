@@ -78,6 +78,8 @@ public class News {
     }
 
     //Returns detail news information
-    public String getUrl(){ return mUrl; }
+    public String getUrl() {
+        return mUrl;
+    }
 
 }
