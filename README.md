@@ -20,7 +20,7 @@ The user can click on any news item in the list and read a web view of the story
 The key features in the application are:  NewsActivity, News, NewsAdapter, NewsLoader, and QueryUtils
 
 Structure of the code derives from the Earthquare application used in class:
-https://github.com/udacity/ud843-Quake Report
+https://github.com/udacity/ud843-QuakeReport
 
 Source of content comes from the open-source API for The Guardian. 
 
