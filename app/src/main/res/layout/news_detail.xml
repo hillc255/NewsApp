@@ -1,0 +1,20 @@
+<ScrollView  xmlns:android="http://schemas.android.com/apk/res/android"
+android:id="@+id/scrollview"
+android:layout_width="fill_parent"
+android:layout_height="wrap_content"
+android:layout_below="@id/driver_log_layout">
+
+<LinearLayout
+    android:id="@+id/driver_log_layout"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:orientation="vertical"
+    android:descendantFocusability="blocksDescendants" >
+
+    <WebView
+        android:id="@+id/url"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"/>
+
+    </LinearLayout>
+</ScrollView>

@@ -25,6 +25,9 @@ public class News {
     // Image for news
     private String mImageUrl;
 
+    //Detail for news
+    private String mUrl;
+
 
     /**
      * Constructs a new {@link News} object.
@@ -34,13 +37,15 @@ public class News {
      * @param date        is the date of news
      * @param contributor is the contributor of the news
      * @param imageUrl    is the website URL to the news thumbnail
+     * @param url         is the website URL to the news item details
      */
-    public News(String title, String section, String date, String contributor, String imageUrl) {
+    public News(String title, String section, String date, String contributor, String imageUrl, String url) {
         mTitle = title;
         mSection = section;
         mNewsDate = date;
         mContributor = contributor;
         mImageUrl = imageUrl;
+        mUrl = url;
     }
 
     // Returns the time of the earthquake.
@@ -71,5 +76,8 @@ public class News {
     public String getImageUrl() {
         return mImageUrl;
     }
+
+    //Returns detail news information
+    public String getUrl(){ return mUrl; }
 
 }

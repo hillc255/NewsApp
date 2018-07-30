@@ -2,6 +2,7 @@ package com.example.android.newsapp;
 
 import android.text.TextUtils;
 import android.util.Log;
+import android.webkit.WebView;
 
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -192,8 +193,12 @@ public final class QueryUtils {
                 JSONObject imageUrlObject = currentNews.getJSONObject("fields");
                 imageUrl = imageUrlObject.getString("thumbnail");
 
+                // Extract the value for the key "apiUrl"
+                String url = currentNews.getString("webUrl");
+
+
                 // Pass the values to each news item
-                News news = new News(title, section, date, contributor, imageUrl);
+                News news = new News(title, section, date, contributor, imageUrl, url);
 
                 // Add the new {@link Earthquake} to the list of earthquakes.
                 newsList.add(news);
