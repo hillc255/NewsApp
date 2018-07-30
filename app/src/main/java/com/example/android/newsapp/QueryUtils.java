@@ -20,7 +20,7 @@ import java.util.List;
 
 
 /**
- * Helper methods related to requesting and receiving earthquake data from USGS.
+ * Helper methods related to requesting and receiving news data from The Guardian
  */
 public final class QueryUtils {
 
@@ -37,45 +37,26 @@ public final class QueryUtils {
     private QueryUtils() {
     }
 
-
     /**
      * Query the Guardian dataset and return a list of {@link News} objects.
      */
     public static List<News> fetchNewsData(String requestUrl) {
 
-        Log.i(LOG_TAG, "TEST: fetchNewsData() called...");
-
-//        //test loader is working
-//        try {
-//            Thread.sleep(2000);
-//        } catch (InterruptedException e) {
-//            e.printStackTrace();
-//        }
-
-
         // Create URL object
         URL url = createUrl(requestUrl);
-
-        Log.i(LOG_TAG, "TEST: createUrl...");
 
         // Perform HTTP request to the URL and receive a JSON response back
         String jsonResponse = null;
         try {
             jsonResponse = makeHttpRequest(url);
 
-            Log.i(LOG_TAG, "TEST: try to makeHTTPRequest..");
-
         } catch (IOException e) {
             Log.e(LOG_TAG, "Problem making the HTTP request.", e);
         }
 
-        Log.i(LOG_TAG, "TEST: finished makeHTTPRequest..");
-
         List<News> newslist = extractFeatureFromJson(jsonResponse);
 
-        Log.i(LOG_TAG, "TEST: finished extractFeatureFromJson..");
-
-        // Return the list of {@link Earthquake}s
+        // Return the list of {@link News}s
         return newslist;
     }
 
@@ -86,9 +67,6 @@ public final class QueryUtils {
         URL url = null;
         try {
             url = new URL(stringUrl);
-            Log.i(LOG_TAG, "Test: get url");
-            Log.i(LOG_TAG, url.toString());
-
         } catch (MalformedURLException e) {
             Log.e(LOG_TAG, "Problem building the URL ", e);
         }
@@ -103,8 +81,6 @@ public final class QueryUtils {
 
         // If the URL is null, then return early.
         if (url == null) {
-
-            Log.i(LOG_TAG, "TEST: jsonResponse is empty..");
             return jsonResponse;
         }
 
@@ -156,8 +132,6 @@ public final class QueryUtils {
                 line = reader.readLine();
             }
         }
-
-        Log.i(LOG_TAG, "TEST: finish reading from url");
         return output.toString();
     }
 
@@ -167,15 +141,11 @@ public final class QueryUtils {
      */
     private static List<News> extractFeatureFromJson(String newsJSON) {
         if (TextUtils.isEmpty(newsJSON)) {
-
-            Log.i(LOG_TAG, "TEST empty extractFeatureFromJson()");
             return null;
         }
 
-        // Create an empty ArrayList that we can start adding earthquakes to
+        // Create an empty ArrayList that we can start adding news items to
         List<News> newsList = new ArrayList<>();
-
-        Log.i(LOG_TAG, "TEST empty new ArrayList created");
 
         // Try to parse the JSON response string. If there's a problem with the way the JSON
         // is formatted, a JSONException exception object will be thrown.
@@ -183,13 +153,8 @@ public final class QueryUtils {
 
 
         try {
-
-            Log.i(LOG_TAG, "TEST: inside try - parse");
-
             // Create a JSONObject from the JSON response string
             JSONObject baseJsonResponse = new JSONObject(newsJSON);
-
-            Log.i(LOG_TAG, "TEST: created news Json object");
 
             //Create the JSONObject with the key "response"
             JSONObject responseJSONObject = baseJsonResponse.getJSONObject("response");
@@ -197,18 +162,13 @@ public final class QueryUtils {
             // which represents a list of news stories.
             JSONArray newsArray = responseJSONObject.getJSONArray("results");
 
-            Log.i(LOG_TAG, "TEST: created JSONArray()..");
-
-            // For each earthquake in the earthquakeArray, create an {@link News} object
+            // For each news item in the newsArray, create an {@link News} object
             for (int i = 0; i < newsArray.length(); i++) {
-
-                Log.i(LOG_TAG, "TEST: inside newArray loop");
 
                 // Get a single newsStory at position i within the list of news stories
                 JSONObject currentNews = newsArray.getJSONObject(i);
 
-                Log.i(LOG_TAG, "TEST: get a single story ");
-
+                // Extract the value for the key called "webTitle"
                 String title = currentNews.getString("webTitle");
 
                 // Extract the value for the key called "sectionName"
@@ -217,7 +177,7 @@ public final class QueryUtils {
                 // Extract the value for the key called "webPublicationDate"
                 String date = currentNews.getString("webPublicationDate");
 
-                //Extract the JSONArray with the key "tag"
+                //Extract the JSONArray with the key "tag" in order to get contributor
                 JSONArray tagsArray = currentNews.getJSONArray("tags");
                 //Declare String variable to hold author name
                 String contributor = null;
@@ -226,16 +186,13 @@ public final class QueryUtils {
                     contributor = contributorTag.getString("webTitle");
                 }
 
-
+                // Extract the thumbnail associated with news item in "field" object
                 String imageUrl = null;
                 JSONObject imageUrlObject = currentNews.getJSONObject("fields");
                 imageUrl = imageUrlObject.getString("thumbnail");
-                //     String imageUrl = currentNews.getString("thumbnail");
 
-                //        String url = currentNews.getString("url");
-
+                // Pass the values to each news item
                 News news = new News(title, section, date, contributor, imageUrl);
-                //  News news = new News(title, section, date, contributor);
 
                 // Add the new {@link Earthquake} to the list of earthquakes.
                 newsList.add(news);
