@@ -2,12 +2,11 @@ package com.example.android.newsapp;
 
 import android.content.AsyncTaskLoader;
 import android.content.Context;
-import android.util.Log;
 
 import java.util.List;
 
 /**
- * Loads a list of earthquakes by using an AsyncTask to perform the
+ * Loads a list of news items by using an AsyncTask to perform the
  * network request to the given URL.
  */
 public class NewsLoader extends AsyncTaskLoader<List<News>> {
@@ -35,9 +34,6 @@ public class NewsLoader extends AsyncTaskLoader<List<News>> {
 
     @Override
     protected void onStartLoading() {
-
-        Log.i(LOG_TAG, "TEST: onStartLoading() called...");
-
         forceLoad();
     }
 
@@ -46,17 +42,14 @@ public class NewsLoader extends AsyncTaskLoader<List<News>> {
      */
     @Override
     public List<News> loadInBackground() {
-
-        Log.i(LOG_TAG, "TEST: loadInBackground() called...");
-
         if (mUrl == null) {
             return null;
         }
 
-        // Perform the network request, parse the response, and extract a list of earthquakes.
+        // Perform the network request, parse the response, and extract a list of news items.
         List<News> newsList = QueryUtils.fetchNewsData(mUrl);
 
-
+        // Return list of news items
         return newsList;
     }
 }
