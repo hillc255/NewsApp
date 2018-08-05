@@ -32,12 +32,12 @@ The purpose of the exercise is to create a "News app."
 ## Installation
 
 Project can be downloaded from GitHub:</br>
-https://github.com/hillc255/NewsApi</br>
+https://github.com/hillc255/NewsApp</br>
 
 ## API Reference
 
 Source of content comes from the open-source API from "The Guardian."</br>
-https://open-platform.theguardian.com/documentation/ </br> 
+https://open-platform.theguardian.com/documentation/</br> 
 
 ## Tests (Future consideration!)
 
