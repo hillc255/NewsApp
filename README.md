@@ -12,7 +12,7 @@ new items from a list.
 The user can click on any news item in the list and read a web view of the story in detail.
 
 <p align="center">
- <kbd><img width="225" height="399" src="readme_assets/NewsAppf.png"></kbd><kbd><img width="225" height="399" src="readme_assets/NewsApp2.png"></kbd>
+ <kbd><img width="225" height="399" src="readme_assets/NewsAppf.jpg"></kbd><kbd><img width="225" height="399" src="readme_assets/NewsApp2.png"></kbd>
 </p>
 
 ## Code Description
