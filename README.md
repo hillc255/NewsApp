@@ -31,7 +31,8 @@ The purpose of the exercise is to create a "News app."
 
 ## Installation
 
-Project can be downloaded from GitHub:  https://github.com/hillc255/NewsApi</br>
+Project can be downloaded from GitHub:</br>
+https://github.com/hillc255/NewsApi</br>
 
 ## API Reference
 
